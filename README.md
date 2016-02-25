@@ -109,9 +109,14 @@ dependencies {
 import com.oney.gcm.GcmPackage;                             // <- Add this line
 import io.neson.react.notification.NotificationPackage;     // <- Add this line
     ...
-        .addPackage(new MainReactPackage())
-        .addPackage(new GcmPackage())                       // <- Add this line
-        .addPackage(new NotificationPackage(this))          // <- Add this line
+    
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        new GcmPackage(),                   // <- Add this line
+        new NotificationPackage(this)       // <- Add this line
+      );
+    }
 ```
 
 ### GCM API KEY
